@@ -1,13 +1,14 @@
 package com.example.integrationmultiplydatabases.model.sqlserver;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.example.integrationmultiplydatabases.model.mysql.nhanvien;
+import jakarta.persistence.*;
 import lombok.*;
 
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Table(name = "NHANVIEN")
 @Data
@@ -26,5 +27,8 @@ public class NHANVIEN {
     @Column(name = "TEN")
     private String TEN;
     @Column(name = "NGAYSINH")
-    private Date NGAYSINH;
+    private LocalDate NGAYSINH;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "nhanvien", orphanRemoval = true)
+    List<LUONG> luongs = new ArrayList<>();
 }

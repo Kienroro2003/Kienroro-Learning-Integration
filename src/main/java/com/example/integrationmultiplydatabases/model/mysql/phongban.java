@@ -26,4 +26,12 @@ public class phongban implements Serializable {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "phongban", orphanRemoval = true)
     List<nhanvien> nhanviens = new ArrayList<>();
+
+    @Override
+    public String toString() {
+        return "phongban{" +
+                "MAPHONGBAN=" + MAPHONGBAN +
+                ", TENPHONGBAN='" + TENPHONGBAN + '\'' +
+                '}';
+    }
 }

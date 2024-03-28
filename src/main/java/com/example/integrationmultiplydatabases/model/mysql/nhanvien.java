@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 
 
@@ -14,6 +15,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Data
 public class nhanvien implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -30,7 +32,7 @@ public class nhanvien implements Serializable {
     private String HO;
 
     @Column(name = "NGAYSINH")
-    private Date NGAYSINH;
+    private LocalDate NGAYSINH;
 
     @Column(name = "TEN")
     private String TEN;
